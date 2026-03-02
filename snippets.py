@@ -74,7 +74,7 @@ def add_movie(
         If `add_fullscreen == True`, returns a tuple of `(movie_shape, fullscreen_movie_slide)` else just returns the `movie_shape`
     """
     movie = slide.shapes.add_movie(
-        "./example_video.mp4",
+        movie_file,
         left,
         top,
         width,
@@ -97,7 +97,7 @@ def add_movie(
             fs_movie_slide.element.set("show", "0")
 
         fs_movie = fs_movie_slide.shapes.add_movie(
-            "./example_video.mp4",
+            movie_file,
             0,
             0,
             pres.slide_width,
