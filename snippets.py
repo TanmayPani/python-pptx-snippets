@@ -32,7 +32,9 @@ def autoplay_media(media: pptx.shapes.picture.Movie) -> None:
     cond.set("evt", "onBegin")
 
 
-def move_slide(pres, from_index, to_index):
+def move_slide(
+    pres: pptx.presentation.Presentation, from_index: int, to_index: int
+) -> None:
     """Move slide at position `from_index` in presentation `pres` to `to_index`"""
     slides = list(pres.slides._sldIdLst)
     if to_index < 0:
@@ -53,7 +55,7 @@ def add_movie(
     poster_frame_image: str | None = None,
     add_fullscreen: bool = True,
     hide_fullscreen_slide: bool = True,
-) -> pptx.shapes.picture.Movie | tuple[pptx.shapes.picture.Movie | pptx.slide.Slide]:
+) -> pptx.shapes.picture.Movie | tuple[pptx.shapes.picture.Movie, pptx.slide.Slide]:
     """
     Wrapper around add_movie method of a `pptx.slide.Slide` instance to add movies with functionality to toggle fullscreen mode
 
