@@ -1,0 +1,103 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "setup",
+      "code_hash": "84a6cacaee459991066618af71a40dcd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "cca6b3950ed06b35d098c329d7af75f1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Created a <code>Presentation</code> instance in the setup cell (global state), \nwill add one slide per cell below. Any hidden slides (e.g. slides \ncontaining fullscreen videos) will be appended to the hidden_slides \nlist. They will be transferred to the end of the slide-deck before \nsaving it in the last cell.</span>\n<span class=\"paragraph\">Recommended to run this notebook as a script using <code>uv run main.py</code> or <code>python main.py</code> in an environment with the required dependencies installed (look at the <code>pyproject.toml</code> in this repository).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "61edff730145072c0e4a701544bab2c5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "58b1c32b9c890ff4711816d05d7b1905",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "hpKm",
+      "code_hash": "f067475f850c8e2ee56cf5f55107811e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Here we add a movie to the next slide using our own <code>add_movie</code> defined in <code>snippets.py</code> which wraps the <code>add_movie</code> method of the <code>pptx.slide.Slide</code> instance returned by <code>prs.slides.add_slide</code> method</span>\n<span class=\"paragraph\">If the <code>add_fullscreen</code> keyword argument is passed as <code>True</code> (default), then the <code>add_movie</code> method will add another slide which has the same video taking up the whole space and also add the clickable shapes to go back and forth between the current slide containing the original video and the fullscreen slide containing the fullscreen video, immitating the experience of having an icon toggling fullscreen mode on/off. </span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "2b0e3a5cead9663241add121cc55add0",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Rvuv",
+      "code_hash": "044c31043ed6b1d785d9db33d08a2f13",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h4 id=\"limitations\">Limitations :</h4>\n<ul>\n<li>During a slide show session (triggered by clicking on \"Play\"/\"Play from current slide\" option in your slides app), the fullscreen version will autoplay only once for a video, next time you go to the \"fullscreen mode\" of the same video, you will have to click on the play button in the video playback controls</li>\n<li>If you use keynote (MS PowerPoint equivalent in MacOS), then it doesn't support clickable actions pointing to a hidden slide. The functions provided here work best with MS PowerPoint, but if you are restricted to Keynote, then set the keyword argument <code>hide_fullscreen_slide</code> to <code>False</code> (default: <code>True</code>). So the above code would look like:\n   <div class=\"language-scdoc codehilite\"><pre><span></span><code>_movie, _fs_movie_slide  = add_movie(\n    prs, \n    _slide, \n    &quot;./example_video.mp4&quot;, \n    0., \n    0., \n    prs.slide_width/2, \n    prs.slide_height/2, \n    hide_fullscreen_slide=False,\n)\n</code></pre></div>\n   So the fullscreen slides will be completely visible in the slide deck and you would be able to navigate to them like a normal slide. In that case it is highly recommended to use the snippet given in the <a href=\"#last_cell\">last cell</a> to move these slides to the end of the slide decl (just before saving the pptx)</li>\n<li>Not tested for any open source presentation software (e.g. LibreOffice, OpenOffice etc.). LibreOffice doesn't show playback control bar in the video slide so it would be a lot messier to rewrite the logic to never use the play button on the user end. </li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "7519a7382d09746316bd1c04a1186f6e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "oMCH",
+      "code_hash": "b04a724563e06d88f53ecb942685b9ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><a id=\"last_cell\"></a>\nThe last cell will move all the extra slides (e.g. fullscreen video slides) to end of the slide deck, so that they don't interfere with the flow of the slides while viewing the <code>.pptx</code> output in PowerPoint/Keynote or in presentation mode (if using Keynote). We use the <code>move_slide</code> function defined in <code>snippets.py</code>   </span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "b6855be2c8937e27424b0cdbc7274ab0",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

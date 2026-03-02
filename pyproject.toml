@@ -1,0 +1,24 @@
+[project]
+name = "pptx-fullscreen"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-pptx>=1.0.2",
+    "zensical>=0.0.24",
+]
+
+[dependency-groups]
+dev = [
+    "marimo[recommended]>=0.20.2",
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.3",
+    "mkdocstrings[python]>=1.0.3",
+]
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 20
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
