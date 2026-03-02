@@ -1,7 +1,8 @@
 ## pptx-python-snippets
 
+[Documentation](https://tanmaypani.github.io/python-pptx-snippets/)
 
-Extra snippets for some more functionalities with `python-pptx`. 
+Extra snippets for some more functionalities with `python-pptx`.
 
 Currently they revolve around adding more functionalities to movie shapes, but will keep adding more as I use the package more...
 
