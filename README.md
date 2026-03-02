@@ -17,5 +17,5 @@ Assuming you're already in an environment with the dependencies installed (mainl
 - Run `python main.py` or `uv run main.py` if using `uv` (highly recommended) and open the output `output.pptx` in PowerPoint or Keynote
 
 ## Caveats 
-- So far can't guarantee these working with LibreOffice Impress or the other open-source PowerPoint alternatives. If using linux then I personally recommend using markdown or `beamer`(`\Latex`) to make slides programatically. 
+- So far can't guarantee these working with LibreOffice Impress or the other open-source PowerPoint alternatives. If using linux then I personally recommend using markdown or `beamer`(LaTeX) to make slides programatically. 
 
