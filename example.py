@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.20.2"
-app = marimo.App()
+app = marimo.App(width="medium")
 
 with app.setup:
     import os
@@ -19,6 +19,15 @@ with app.setup:
     file_name = mo.notebook_location() / "output.pptx"
     if os.path.exists(file_name):
         os.remove(file_name)
+
+
+# @app.cell
+# def _():
+#    from snippets import get_thumbnail_from_video
+#
+#    _video_path = mo.notebook_location() / "public" / "example_video.mp4"
+#    print(get_thumbnail_from_video(_video_path))
+#    return
 
 
 @app.cell(hide_code=True)
@@ -66,15 +75,15 @@ def _():
 @app.cell
 def _():
     _slide = prs.slides.add_slide(prs.slide_layouts[6])
-    video_path = mo.notebook_location() / "public" / "example_video.mp4"
-    _movie, _fs_movie_slide = add_movie(
+    _movie, _fs_movie_slide, _thumbnail = add_movie(
         prs,
         _slide,
-        str(video_path),
+        str(mo.notebook_location() / "public" / "example_video.mp4"),
         0.0,
         0.0,
         prs.slide_width / 2,
         prs.slide_height / 2,
+        add_fullscreen=True,
     )
     hidden_slides.append(_fs_movie_slide)
     return
